@@ -11,7 +11,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 # Define the data file path
-data_file_path = "C:/Users/Hamit/Desktop/dashboard_mhc_ayc/data/Netflix Userbase.csv"
+data_file_path = Path(__file__).parent.parent / "data" / "Netflix Userbase.csv"
 
 def load_data():
     """
@@ -150,21 +150,22 @@ homepage_layout = html.Div([
     html.H1("Welcome to the Subscription Service Dashboard of Hamitoly and Çayçoly",
             style={'color': 'red', 'font-family': 'Consolas', 'text-align': 'center'}),
     html.Div([
-        dcc.Link('Go to Dashboard', href='/dashboard', style={'color': 'purple', 'font-family': 'Consolas'})
+        dcc.Link('Go to Dashboard', href='/dashboard', style={'color': 'purple', 'font-family': 'Consolas', 'text-align': 'center'})
     ])
 ])
 
 # Define the dashboard layout
 dashboard_layout = html.Div([
-    html.H1("Dashboard", style={'color': 'purple', 'font-family': 'Consolas'}),
-    html.P("Made with love by MHC for AYC. © 2024",
+    html.H1("Dashboard", style={'color': 'purple', 'font-family': 'Consolas', 'text-align': 'center'}),
+    html.P("Made with love by MHC for AYC.",
            style={'color': 'black', 'font-family': 'Consolas', 'font-size': '16px', 'text-align': 'center'}),
-
+    html.P("© 2024",
+           style={'color': 'black', 'font-family': 'Consolas', 'font-size': '16px', 'text-align': 'center'}),
     html.Div([
         html.A(
             html.Button('Download CSV',
                         style={'color': 'white', 'background-color': 'purple', 'font-family': 'Consolas',
-                               'font-size': '16px'}),
+                               'font-size': '16px', 'text-align': 'center'}),
             id='download-link',
             download="Netflix Userbase.csv",
             href="",
